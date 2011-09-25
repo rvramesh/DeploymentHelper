@@ -1,0 +1,16 @@
+Deployment Helper V 0.1
+
+Helps you to configure your application post deployment. Create an Xml file with EnvironmentName.AppName.config and copy the sample config "Prod.HelloWorld.Config" contents into it. Update the appName, environmentName. Point the app's web.config in the appLocation. 
+
+In the settings node, id should be an unique identifier across the config. key will be the XPath query to point to the nodes which needs to be updated. attributeName will be the attribute which will be modified. matchExpression is a regular expression and is an optional field. If the entire attribute value has to be replaced don't specify matchExpression. If a regular expression is specified the matches of the expression will be replaced. The replaceValue should contain the value which needs to be placed.
+
+Once the config files are prepared, place them in the same directory as the application and run the application by DeploymentHelper.exe AppName EnvironmentName. e.g DeploymentHelper.exe HelloWorld Prod
+
+Road Map
+
+The future release would contain a pluggable data store from which the config settings will be pulled. Others can develop their own providers and can be plugged into the deployment helper.
+
+Please drop in your suggestions, feature requests and bugs at https://github.com/rvramesh/DeploymentHelper/issues
+
+Thanks
+Ramesh
