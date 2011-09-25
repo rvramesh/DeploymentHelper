@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <connectionStrings>
+    <add name="SqlServer1" connectionString="Server=127.0.0.12;Integrated Security=True; Database=prod_db1;Persist Security Info=True" />
+    <add name="SqlServer2" connectionString="Server=127.0.0.12;Integrated Security=True; Database=prod_db2;Persist Security Info=True" />
+  </connectionStrings>
+  <system.serviceModel>
+    <client>
+      <endpoint name="MyService" binding="wsHttpBinding" bindingConfiguration="WSHttpBinding_IHello" behaviorConfiguration="IHello_Behavior" contract="IHello" address="http://127.0.0.210/PROD/MyService.svc">
+        <identity>
+          <servicePrincipalName value="host/localhost" />
+        </identity>
+      </endpoint>
+    </client>
+    <!--The bindings section references by the bindingConfiguration endpoint attribute.-->
+    <bindings>
+      <wsHttpBinding>
+        <binding name="WSHttpBinding_IHello" bypassProxyOnLocal="false" hostNameComparisonMode="StrongWildcard">
+          <readerQuotas maxDepth="32" />
+          <reliableSession ordered="true" enabled="false" />
+          <security mode="Message">
+            <!--Security settings go here.-->
+          </security>
+        </binding>
+      </wsHttpBinding>
+    </bindings>
+    <!--The behavior section references by the behaviorConfiguration endpoint attribute.-->
+    <behaviors>
+      <endpointBehaviors>
+        <behavior name=" IHello_Behavior ">
+          <clientVia />
+        </behavior>
+      </endpointBehaviors>
+    </behaviors>
+  </system.serviceModel>
+</configuration>
