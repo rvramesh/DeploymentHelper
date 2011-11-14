@@ -9,16 +9,16 @@ using System.IO;
 namespace DeploymentHelper
 {
 
-    public class ConfigSettingCollection
+    public class ConfigSettingCollection : DeploymentHelper.IConfigSettingCollection
     {
-        private List<MyConfigurationSection> _collection = new List<MyConfigurationSection>();
+        private List<IConfigurationDetail> _collection = new List<IConfigurationDetail>();
 
-        public void Add(MyConfigurationSection element)
+        public void Add(IConfigurationDetail element)
         {
             _collection.Add(element);
         }
 
-        public MyConfigurationSection Get(string appName, string environmentName)
+        public IConfigurationDetail Get(string appName, string environmentName)
         {
             var result = from item in _collection
                          where item.EnvironmentName.Equals(environmentName,StringComparison.OrdinalIgnoreCase) &&
@@ -84,10 +84,8 @@ namespace DeploymentHelper
         }
     }
 
-    public class MyConfigurationSection : System.Configuration.ConfigurationElement
+    public class MyConfigurationSection : System.Configuration.ConfigurationElement, DeploymentHelper.IConfigurationDetail
     {
-
-
         [ConfigurationProperty("environmentName")]
         public string EnvironmentName
         {
@@ -137,19 +135,19 @@ namespace DeploymentHelper
             }
         }
 
-        public IEnumerable<MyConfigurationElement> Settings
+        public IEnumerable<IConfigurationSetting> Settings
         {
             get
             {
-                for (int i = 0; i < SettingsInternal.Count; i++)
+                for (int i = 0; i < this.SettingsInternal.Count; i++)
                 {
-                    yield return SettingsInternal[i];
+                    yield return this.SettingsInternal[i] as IConfigurationSetting;
                 }
             }
         }
     }
 
-    public class MyConfigurationElement : ConfigurationElement
+    public class MyConfigurationElement : ConfigurationElement, DeploymentHelper.IConfigurationSetting
     {
         [ConfigurationProperty("key", DefaultValue = "")]
         public string Key

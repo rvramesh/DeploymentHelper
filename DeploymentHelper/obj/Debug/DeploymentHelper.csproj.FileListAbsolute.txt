@@ -1,0 +1,8 @@
+D:\Projects\PersonalProjects-\PersonalProjects-\ConfigUpdater\DeploymentHelper\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\PersonalProjects-\PersonalProjects-\ConfigUpdater\DeploymentHelper\bin\Debug\HelloWorld.config
+D:\Projects\PersonalProjects-\PersonalProjects-\ConfigUpdater\DeploymentHelper\bin\Debug\QA.HelloWorld.config
+D:\Projects\PersonalProjects-\PersonalProjects-\ConfigUpdater\DeploymentHelper\bin\Debug\Prod.HelloWorld.Config
+D:\Projects\PersonalProjects-\PersonalProjects-\ConfigUpdater\DeploymentHelper\bin\Debug\DeploymentHelper.exe
+D:\Projects\PersonalProjects-\PersonalProjects-\ConfigUpdater\DeploymentHelper\bin\Debug\DeploymentHelper.pdb
+D:\Projects\PersonalProjects-\PersonalProjects-\ConfigUpdater\DeploymentHelper\obj\Debug\DeploymentHelper.exe
+D:\Projects\PersonalProjects-\PersonalProjects-\ConfigUpdater\DeploymentHelper\obj\Debug\DeploymentHelper.pdb
